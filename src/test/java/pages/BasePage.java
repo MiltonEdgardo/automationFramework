@@ -1,8 +1,10 @@
 package pages;
 
+import cucumber.api.java.en_old.Ac;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import utils.ExplicitWaitManager;
 
@@ -11,7 +13,6 @@ import java.time.Duration;
 public class BasePage {
 
     protected WebDriver driver;
-
     protected ExplicitWaitManager explicitWaitManager;
 
     public BasePage(WebDriver driver) {
@@ -37,6 +38,11 @@ public class BasePage {
     public String getText(WebElement element) {
         explicitWaitManager.waitUntilBeVisible(element);
         return element.getText();
+    }
+
+    public String getUrlLink(WebElement element, String atribute) {
+        explicitWaitManager.waitUntilBeVisible(element);
+        return element.getAttribute(atribute);
     }
 
     public String getTitle() {
